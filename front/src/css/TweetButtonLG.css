@@ -1,0 +1,52 @@
+.tweet_btn_container {
+  width: 100%;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  border-color: rgb(29, 155, 240);
+  background-color: rgb(29, 155, 240);
+}
+
+.tweet_btn_container h4 {
+  margin: 0px;
+}
+
+.show_sm {
+  display: none;
+}
+@media (max-width: 1071px) {
+  .tweet_btn_container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 991px) {
+  h4 > span {
+    display: none;
+  }
+  .show_lg {
+    display: none;
+  }
+
+  .show_sm {
+    display: block;
+  }
+
+  .tweet_btn_container {
+    width: auto;
+  }
+  /* .link {
+    padding-left: 0px;
+  } */
+}
+
+@media (max-width: 575px) {
+  .tweet_btn_container {
+    display: none !important;
+  }
+
+  .tweet_container {
+    display: none !important;
+  }
+}

@@ -1,0 +1,55 @@
+.main {
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+  backdrop-filter: blur(10px);
+}
+
+.testing {
+  display: none;
+}
+
+button {
+  all: unset;
+  padding: 20px;
+  color: rgb(61, 61, 61);
+}
+
+.btn_container {
+  width: 100%;
+  transition: 0.9s;
+}
+.btn_container:hover {
+  background-color: rgb(214, 213, 213);
+  transition: 0.9s;
+}
+
+ul,
+li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.active {
+  padding-bottom: 18px;
+  border-bottom: 3px solid rgb(29, 155, 240);
+  color: black;
+  font-weight: bold;
+}
+
+.searchbar {
+  width: 60%;
+  border-radius: 20px 20px 20px 20px;
+}
+
+@media (max-width: 575px) {
+  .testing {
+    display: flex;
+  }
+
+  .searchbar {
+    width: 80%;
+    border-radius: 20px 20px 20px 20px;
+  }
+}

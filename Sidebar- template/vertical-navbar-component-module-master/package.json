@@ -1,0 +1,66 @@
+{
+  "name": "@redwallsolutions/vertical-navbar-component-module",
+  "version": "4.2.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "author": "Andrew Ribeiro",
+  "keywords": [
+    "vertical navbar",
+    "navbar",
+    "material bar",
+    "menu"
+  ],
+  "repository": "https://github.com/redwallsolutions/vertical-navbar-component-module",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "start": "rimraf demo/output && parcel demo/index.html -d demo/output --open",
+    "test": "echo \"No tests were specified.\"",
+    "build": "rimraf dist && tsc",
+    "docz:dev": "docz dev",
+    "docz:build": "rimraf demo/output && docz build",
+    "predeploy": "yarn docz:build",
+    "deploy": "gh-pages -d demo/output"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-react": "^7.6.3",
+    "@types/color": "^3.0.0",
+    "@types/node": "^12.12.3",
+    "@types/react-responsive": "^8.0.1",
+    "@types/react-tooltip": "^3.9.3",
+    "@types/styled-components": "^4.1.22",
+    "babel-preset-react-app": "^9.0.2",
+    "docz": "^2.0.0-rc.70",
+    "gh-pages": "^2.1.1",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-icons": "^3.7.0",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.6.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "@redwallsolutions/common-interfaces-ts": "^1.0.1",
+    "@redwallsolutions/react-ink": "^6.4.3",
+    "@redwallsolutions/theming-component-module": "^2.0.1",
+    "color": "^3.1.0",
+    "react-responsive": "^8.0.1",
+    "react-tooltip": "^4.2.21",
+    "styled-components": "^4.4.1"
+  }
+}

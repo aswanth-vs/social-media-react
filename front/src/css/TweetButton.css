@@ -1,0 +1,13 @@
+.fixed {
+  z-index: 999;
+  position: fixed;
+  bottom: 0;
+  display: none !important;
+}
+
+@media (max-width: 575px) {
+  .fixed {
+    margin-bottom: 55px;
+    display: block !important;
+  }
+}

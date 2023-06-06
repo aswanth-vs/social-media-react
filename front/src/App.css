@@ -1,0 +1,50 @@
+.container-fluid {
+  margin: 0px;
+}
+
+.row {
+  height: 100dvh;
+}
+
+.middle {
+  height: 2000px;
+  padding: 0;
+}
+
+.twt-btn {
+  display: none !important;
+}
+
+/* .side_bar {
+  box-shadow: 0 0 6px hsl(210 14% 90%);
+} */
+
+/* dont need this section when the screen size is small */
+@media (max-width: 991px) {
+  .right {
+    display: none;
+  }
+
+  .left {
+    display: flex;
+    justify-content: end;
+  }
+}
+@media (max-width: 575px) {
+  .left {
+    position: fixed;
+    bottom: 0px;
+    border: 1px solid;
+    z-index: 999;
+    background-color: rgb(255, 255, 255);
+    justify-content: space-around;
+  }
+
+  .twt-btn {
+    display: flex !important;
+  }
+
+  .right {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+.main {
+  position: sticky;
+  top: 0px;
+  z-index: 99;
+  backdrop-filter: blur(10px);
+}
+
+.testing {
+  display: none;
+}
+
+button {
+  all: unset;
+  padding: 20px;
+  color: rgb(61, 61, 61);
+}
+
+@media (max-width: 575px) {
+  .testing {
+    display: flex;
+  }
+}

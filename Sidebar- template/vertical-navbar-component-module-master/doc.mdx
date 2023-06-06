@@ -1,0 +1,154 @@
+---
+ name: Vertical Navbar Component Module
+ route: /
+---
+import {useState} from 'react';
+import {Props, Playground} from 'docz'
+import Navbar from './src/lib/'
+
+
+## Introduction
+
+Vertical Navbar is a react component that creates a 
+vertical navbar in the left side of the page. 
+It behaves completely responsive when accessing it in small devices
+transforming the vertical navbar to a horizontal navbar at the bottom of the page.
+
+## Props
+
+<Props of={Navbar}/>
+
+## Usage
+
+You may use this component as a wrapper of all (almost) your components.
+
+<Playground>
+  <div style={{height: '300px'}}>
+    <Navbar items={[
+        {
+            name: 'Home', 
+            icon: <span role="img" aria-label="home">🏠</span>
+        }, {
+            name: 'Achievements',
+            icon: <span role="img" aria-label="achievements">🏆</span> 
+        }, {
+            name: 'Calendar',
+            icon: <span role="img" aria-label="calendar">🗓️</span> 
+        }
+    ]}>
+        <p>Contents here may be controller by some router logic.<br/><small><em>Decrease/Increase screen size to see the responsiveness.</em></small></p>
+    </Navbar>
+  </div>
+</Playground>
+
+**Passing some awesome icon**
+
+You can render anything in the `icon` item prop attribute. 
+For example, using the [react-icon](https://react-icons.netlify.com/#/) package or other awesome icon package of your taste:
+
+**Changing the appearance and theme**
+
+This component supports two additional props: `appearance` and `theme`.
+
+The `appearance` can receive one of these three values: `'default'`, `'primary'` or `'secondary'`. 
+Each one of these changes completety the appearance of the component.
+
+    <Navbar appearance="primary">
+        /* All your application components here */
+    </Navbar>
+
+The `theme` can receive an object value with the following structure:
+
+    {
+        mode: 'light' | 'dark',
+        default?: 'any color string'
+        primary?: 'any color string',
+        secondary?: 'any color string',
+        defaultContrast?: 'any color string',
+        primaryContrast?: 'any color string',
+        secondaryContrast?: 'any color string',
+        defaultDark?: 'any color string',
+        primaryDark?: 'any color string',
+        secondaryDark?: 'any color string',
+        defaultContrastDark?: 'any color string',
+        primaryContrastDark?: 'any color string',
+        secondaryContrastDark?: 'any color string'
+    }
+
+The best way to understand how these attrs work together is to passing a complete
+theme object with some of your favorite colors and switching the theme mode between `'light'`, `'dark'`. To get better results,
+switch also the `appearance` prop between the three available values.
+
+<Playground>
+    {
+        () => {
+            const [mode, setMode] = useState('light');
+            return (
+                <div style={{height: '300px'}}>
+                    <Navbar items={[
+                        {
+                            name: 'Day', 
+                            icon: <span role="img" aria-label="light">💡</span>,
+                            handler: () => setMode('light')
+                        }, {
+                            name: 'Night',
+                            icon: <span role="img" aria-label="night">🌃</span>,
+                            handler: () => setMode('dark')
+                        }
+                    ]}
+                    theme={{
+                        mode,
+                        default: 'teal',
+                        defaultContrast: 'white',
+                        defaultDark: 'aliceblue',
+                        defaultContrastDark: '#1e1e1e'
+                    }}>
+                        <div style={{color:'green'}}>Current mode is {mode}</div>
+                    </Navbar>
+                </div>
+            )
+        }
+    }
+</Playground>
+
+## Hooks
+
+This amazing react feature is also present in the **Vertical Navbar** component.
+The only requirement to use it is calling it in a component that are **children** of the **Navbar**.
+
+    import Navbar, {useVerticalNavbarController} from '@redwallsolutions/vertical-navbar-component-module'
+    ...
+    const MyContent = () => {
+        const navbar = useVerticalNavbarController() //this will work
+        console.log(navbar)
+        return (<div>I'm just a child</div>)
+    }
+
+    <Navbar>
+        <MyContent/>
+    </Navbar>
+
+If you try to call the controller hook outside the component, it will be undefined. 😿
+
+    import Navbar, {useVerticalNavbarController} from '@redwallsolutions/vertical-navbar-component-module'
+    ...
+    const App = () => {
+        const navbar = useVerticalNavbarController() //this WON'T work
+        return (
+            <Navbar>
+                ...
+            </Navbar>
+        )
+    }
+
+*What can I do with hooks?*
+
+Hooks allow you to have access to Navbar Controller. This important object exposes to you some interesting methods.
+
+What about to programmatically set an active item of Navbar?
+
+    const MyContent = () => {
+        const controller = useVerticalNavbarController()
+        controller.setActiveItem(2) //will set the third item as active
+        return (<div>I'm just a child</div>)
+    }
